@@ -25,7 +25,7 @@ public class Route {
 	/**
 	 * Constructeur: par defaut : initialisant les attributs
 	 */
-	Route(){
+	public Route(){
 		portes = new ArrayList<Porte>();
 		logger.trace("Route créée");
 	}

@@ -51,7 +51,7 @@ public class Voyage {
 	/**
 	 * Constructeur: initialisant les attributs
 	 */
-	Voyage(Porte pEntree, Porte pSortie, BigDecimal tarifVoyage, CompagnieAutoroute autorouteVoyage){
+	public Voyage(Porte pEntree, Porte pSortie, BigDecimal tarifVoyage, CompagnieAutoroute autorouteVoyage){
 		entree = pEntree;
 		sortie = pSortie;
 		tarif = tarifVoyage;

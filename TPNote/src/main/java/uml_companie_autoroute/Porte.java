@@ -22,15 +22,12 @@ public class Porte {
 	/**
 	 * Constructeurs : Pour un certain int
 	 */
-	Porte(int valPorte) {
+	public  Porte(int valPorte) {
 		numeroDePorte = valPorte;
 		logger.trace("Porte " + numeroDePorte + " créée");
 	}
 
-	/**
-	 * Equals
-	 */
-
+		
 	/**
 	 * toString - ok
 	 */
@@ -39,15 +36,36 @@ public class Porte {
 	}
 	
 	/**
+	 * Equals - ok
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Porte other = (Porte) obj;
+		if (numeroDePorte != other.numeroDePorte)
+			return false;
+		return true;
+	}
+	
+	/**
 	 * hashCode
 	 */
+	@Override
 	public int hashCode() {
-		return numeroDePorte;
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + numeroDePorte;
+		return result;
 	}
 	
 	
 	/**
-	 * Main :
+	 * Main : verifier que le equals soit bon
 	 */
 	public static void main(String[] args) {
 		Porte porte1 = new Porte(1);
@@ -59,6 +77,8 @@ public class Porte {
 		
 		isEqual = porte1.equals(porte2bis);
 		logger.trace("porte 1 et porte 2 bis : " + isEqual);
+		
+		
 	}
 
 }

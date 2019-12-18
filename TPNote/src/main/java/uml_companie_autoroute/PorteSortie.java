@@ -11,7 +11,7 @@ public class PorteSortie extends Porte {
 	 * Constructeur: Pour un certain int
 	 */
 
-	PorteSortie(int valPorte) {
+	public PorteSortie(int valPorte) {
 		super(valPorte);
 		// TODO Auto-generated constructor stub
 	}

@@ -36,7 +36,7 @@ public class CompagnieAutoroute {
 	/**
 	 * Constructeur: par defaut : initialisant les attributs
 	 */
-	CompagnieAutoroute() {
+	public CompagnieAutoroute() {
 		routes = new ArrayList<Route>();
 		tarifs = new ArrayList<Tarif>();
 		logger.trace("Companie Autoroute créée");
@@ -46,23 +46,35 @@ public class CompagnieAutoroute {
 	 * ObtenirTarif
 	 */
 	public BigDecimal ObtenirTarif(Porte pEntree, Porte pSortie) {
-		return null;
+		return GetTarifCalcule(pEntree, pSortie).getPrix();
 	}
 
 	/**
 	 * GetTarifCalcule
 	 */
 	private Tarif GetTarifCalcule(Porte pEntree, Porte pSortie) {
-		return null;
-
+		Tarif newTarif = GetTarifExact(pEntree, pSortie) ;
+		if (newTarif == null) {
+			BigDecimal somme = new BigDecimal(0);
+			for(Tarif tarif : tarifs) {
+				somme = somme.add(tarif.getPrix());
+			}
+			newTarif = new Tarif(pEntree, pSortie, somme);
+		}
+		return newTarif;
 	}
 
 	/**
-	 * GetTarifExact
+	 * GetTarifExact - ok
 	 */
 	private Tarif GetTarifExact(Porte pEntree, Porte pSortie) {
-		return null;
-
+		Tarif tarifExact = null; //Si aucun tarif exact n'est trouvé
+		for(Tarif tarif : tarifs) {
+			if(tarif.getEntree().equals(pEntree) && tarif.getSortie().equals(pSortie)) {
+				tarifExact = tarif;
+			}
+		}
+		return tarifExact;
 	}
 
 	/**

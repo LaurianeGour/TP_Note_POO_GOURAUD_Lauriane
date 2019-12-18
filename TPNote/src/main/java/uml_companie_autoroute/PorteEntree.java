@@ -8,7 +8,7 @@ public class PorteEntree extends Porte {
 	/**
 	 * Constructeur: Pour un certain int
 	 */
-	PorteEntree(int valPorte) {
+	public PorteEntree(int valPorte) {
 		super(valPorte);
 	}
 	

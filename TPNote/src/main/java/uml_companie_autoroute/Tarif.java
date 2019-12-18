@@ -50,14 +50,22 @@ public class Tarif {
 	}
 
 	/**
-	 * Constructeur: initialisant les attributs
+	 * Constructeur: initialisant les attributs et sans la validite
 	 */
-	Tarif(Porte newEntree, Porte newSortie, LocalDateTime newDateValidite, BigDecimal newPrix) {
+	public Tarif(Porte newEntree, Porte newSortie, LocalDateTime newDateValidite, BigDecimal newPrix) {
 		entree = newEntree;
 		sortie = newSortie;
 		dateValidite = newDateValidite;
 		prix = newPrix;
 		logger.trace("Tarif créé et tous les attributs sont initialisés");
+
+	}
+	
+	public Tarif(Porte newEntree, Porte newSortie, BigDecimal newPrix) {
+		entree = newEntree;
+		sortie = newSortie;
+		prix = newPrix;
+		logger.trace("Tarif créé et presque tous les attributs sont initialisés");
 
 	}
 
