@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.math.BigDecimal;
 import java.util.Collections;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -12,12 +13,14 @@ import uml_companie_autoroute.*;
 
 public class CompagnieAutorouteTest {
 	public static CompagnieAutoroute compagnieAutoroute;
-	public static Route r1;
+	public static Route r1, r2;
 	
 	@BeforeClass
 	public static void initTests() {
 		compagnieAutoroute = new CompagnieAutoroute();
 		r1 = new Route();
+		r2 = new Route();
+		
 	}
 	
 	@Test
@@ -42,16 +45,16 @@ public class CompagnieAutorouteTest {
     }
 
     @Test
-    public void testObtenirTarifCalculé() {
+    public void testObtenirTarifCalculé() {	//Failure à l'execution
 
         Porte p1 = new PorteEntree(1), p2 = new PorteSortie(2), p3 = new PorteEntree(3), p4 = new PorteSortie(4);
 
-        r1.AddPorte(p4);
-        r1.AddPorte(p3);
-        r1.AddPorte(p1);
-        r1.AddPorte(p2);
+        r2.AddPorte(p4);
+        r2.AddPorte(p3);
+        r2.AddPorte(p1);
+        r2.AddPorte(p2);
 
-        compagnieAutoroute.AjouterRoute(r1);
+        compagnieAutoroute.AjouterRoute(r2);
         Collections.sort(r1.getPortes(), new OrdrePorteComparator());
 
         Tarif
